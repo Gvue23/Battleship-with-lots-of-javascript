@@ -1,0 +1,31 @@
+body{
+    background: url(../snapShots/battleship-background.jpg);
+    background-size: cover;
+}
+.header {
+    color: #ffffff;
+    padding: 15px;
+}
+
+#no-select{
+    -webkit-user-select: none;
+    cursor: not-allowed;
+    pointer-events: none;
+}  
+
+.footer {
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+
+[alt~=logo] {
+    height: 300px;
+    margin-left: 550px;
+    margin-top: 50px;
+}
+
+[class~=p5Canvas] {
+  margin-left: 330px;
+}

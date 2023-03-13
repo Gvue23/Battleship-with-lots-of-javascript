@@ -1,7 +1,4 @@
-//play
 var multiPlayerOfflineState = function () {
-    //background
-    //background(0, 255, 255,100);
     var backButton1 = new button("back", 400, 450);
     backButton1.draw();
 

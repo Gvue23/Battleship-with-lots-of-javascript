@@ -1,4 +1,3 @@
-//draw function
 var menuState = function () {
     //rectangle to go around the buttons
     fill(96, 174, 225, 220);
@@ -87,4 +86,3 @@ var menuState = function () {
     }
 
 };
-

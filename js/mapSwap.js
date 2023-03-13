@@ -1,15 +1,7 @@
-/*
-*   creates new instances of player1, player2 and bot
-*/
-
 var player1 = new player("p1", 1);
 var player2 = new player("p2", 2);
 var bot = new botClass();
 
-/*
-* createNewSinglePlayerObject
-* Description : re-initializes instances of Multiplayer object
-*/
 
 var createNewMultiplayerObject = function(){
 
@@ -21,30 +13,17 @@ var createNewMultiplayerObject = function(){
 
 };
 
-/*
-* createNewSinglePlayerObject
-* Description : re-initializes instances of single player object
-*/
 
 var createNewSinglePlayerObject = function(){
 
 	player1 = new player("p1", 1);
 	player1.initializeGrid();
 
-	// destructor equivalent for previous...
 	densityLens = false;
 	bot = new botClass();
 	bot.initializeGrid();
 
 };
-
-/**
-* mapSwap
-* Description : it takes argument as a string, if the parameter is "singlePlayer" it swaps the maps of player1 and bot,
-*               if the parameter is "MultiPlayer" it swaps the maps of player1 and player2
-*
-* @Param {String} gameType  gameType = "singlePlayer" or "multiPlayer" 
-*/
 
 var mapSwap = function (gameType) {
 
@@ -81,4 +60,3 @@ var mapSwap = function (gameType) {
     }
 
 };
-

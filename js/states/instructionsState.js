@@ -1,9 +1,4 @@
-//instructions
 var instructionsState = function () {
-    //background
-    //image(space, 0, 0, 400, 400);
-    //text
-    //background(0, 255, 255,100);
     textSize(35);
     fill(255, 255, 255);
     text("Instructions", 50, 50);

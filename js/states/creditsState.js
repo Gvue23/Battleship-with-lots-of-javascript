@@ -1,12 +1,7 @@
-//Credits
 var creditsState = function () {
-    //background
-    // background(0, 255, 255,100);
-    //text
     fill(255, 255, 255);
     textSize(50);
-    text(" - Gabriel Vue ", 150, 150);
-    //make button
+    text(" - Gabriel Vue & Jonathan Ayala ", 150, 150);
     var backButton = new button("back", 150, 300);
     backButton.draw();
     //if the mouse is in the same place as the button

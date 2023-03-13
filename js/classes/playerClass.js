@@ -1,10 +1,7 @@
 var player = function (playerName, playeris) {
 
-    // inherits objects/attributes from network class
     networkClass.call(this);
-    // inherits objects/attributes from ship class
     shipClass.call(this);
-    // can an if condition come inside constructor ??
     this.gridHidden = new Array(10);
     this.gridHidden[0] = new Array(10);
     this.gridHidden[1] = new Array(10);
@@ -36,8 +33,6 @@ var player = function (playerName, playeris) {
     this.shipArranged = false;
     this.autoButtonPushed = false;
     this.confirmButtonPushed = false;
-    //   this.hitX;
-    //  this.hitY;
     this.ship = [
         //patrolBoat : 
         { begin: { x: 0, y: 0 }, end: { x: 0, y: 0 } },
@@ -52,8 +47,6 @@ var player = function (playerName, playeris) {
     ];
 
 };
-// inherit methods from playClass o player class
-//player.prototype = Object.create(playClass.prototype);
 player.prototype.drawGridActual = function () {
 
     var i = 1, j = 1, indent = 0;
@@ -144,8 +137,6 @@ player.prototype.drawGridHidden = function () {
 
         for (j = 1; j <= 10; j++) {
 
-            // block not yet hit
-            //   if(this.gridHidden[i-1][j-1] === 0){
 
             fill(64, 54, 255);
             if(densityLens === false || this.playeris !== 2){
@@ -176,12 +167,10 @@ player.prototype.drawGridHidden = function () {
 };
 player.prototype.arrangeShip = function () {
 
-    // solve random function ceiling
     var size;
     var a, b, i, num, shipOverlapped = false;
 
     for (size = 5; size > 0; size--) {
-        // put condition for overlap check !!!!!!!!!!!!!!!!!!!!!
         shipOverlapped = false;
 
         num = size;
@@ -192,7 +181,7 @@ player.prototype.arrangeShip = function () {
 
         }
 
-        if (floor(random(0, 2))) { // horizontal arrangement trigger       
+        if (floor(random(0, 2))) {       
 
             while (1) {
 
@@ -205,27 +194,26 @@ player.prototype.arrangeShip = function () {
 
                         shipOverlapped = true;
 
-                        // break and search for a non-overlapping spot again 
                         break;
                     }
                 }
 
                 if (!shipOverlapped) {
 
-                    // updates ships begin coordinate which will be sent to database
+                    
                     this.ship[size - 1].begin.x = a;
                     this.ship[size - 1].begin.y = b;
 
                     for (i = 0; i < num; i++) {
 
-                        this.gridActual[a][b + i] = size; //  horizontal arrangement by random
+                        this.gridActual[a][b + i] = size; 
                     }
 
-                    // updates ships end coordinate which will be sent to database
+                    
                     this.ship[size - 1].end = a;
                     this.ship[size - 1].end = b + i;
 
-                    break; // breaks from while loop as ship is arranged successfully
+                    break; 
                 }
                 shipOverlapped = false;
             }
@@ -244,7 +232,7 @@ player.prototype.arrangeShip = function () {
                     if (this.gridActual[a + i][b] !== 0) {
 
                         shipOverlapped = true;
-                        // break from for loop if ship overlaps
+                        
                         break;
                     }
 
@@ -253,16 +241,15 @@ player.prototype.arrangeShip = function () {
 
                 if (!shipOverlapped) {
 
-                    // updates ships begin coordinate which will be sent to database
+                    
                     this.ship[size - 1].begin.x = a;
                     this.ship[size - 1].begin.x = b;
 
                     for (i = 0; i < num; i++) {
 
-                        this.gridActual[a + i][b] = size; //  vertical arrangement by random
+                        this.gridActual[a + i][b] = size; 
 
                     }
-                    // updates ships end coordinate which will be sent to database
                     this.ship[size - 1].end = a + i;
                     this.ship[size - 1].end = b;
 
@@ -277,15 +264,6 @@ player.prototype.arrangeShip = function () {
     //  return 0;
 };
 player.prototype.initializeGrid = function () {
-/*
-    for(var i = 0; i < 10; i++){
-        this.gridHidden[ i ] = new Array(10);
-    }
-
-    for(var i = 0; i < 10; i++){
-        this.gridActual[ i ] = new Array(10);
-    }
-*/
     for(var i = 0; i < 10; i++){
         for(var j = 0; j < 10; j++){
 
@@ -332,7 +310,6 @@ player.prototype.play = function (playerIs) {
     var indent = 0, i = 1, j = 1;
 
 
-    // if all oponents ships have sunk declare victory
     if (this.checkShipLifeStatus() === true) {
 
         return true;
@@ -340,12 +317,12 @@ player.prototype.play = function (playerIs) {
 
 
     if (this.turn < 100) {
-        // check for win condition in each turn
+
         if (playerIs === 2) {
             indent = 700;
         }
 
-        // ensure player is not able to hit the same grid again
+        
         for (i = 1; i <= 10; i++) {
 
             for (j = 1; j <= 10; j++) {
@@ -359,20 +336,14 @@ player.prototype.play = function (playerIs) {
                     }
 
                     if (mouseIsPressed) {
-                        /*
-                        fill(255, 0, 0);
-                        rect(indent+50+25*i,5+25*j,25,25);
-                        */
                         if ((this.gridActual[i - 1][j - 1] === 0) && (this.gridHidden[i - 1][j - 1] === 0)) {
 
                             this.turn++;
-                            // this deletes water block at location
+                            
                             this.gridHidden[i - 1][j - 1] = -1;
 
                             this.hitX = i - 1;
                             this.hitY = j - 1;
-                            //send your hit coordinates info to the server
-                            // send player2.hitX and player2.hitY
 
                                 playerSwitching = true;
 
@@ -382,14 +353,13 @@ player.prototype.play = function (playerIs) {
                                 }   
 
 
-                            // returns when shot misses
+                            
                             return 0;
                         }
 
                         else if ((this.gridActual[i - 1][j - 1] > 0) && (this.gridHidden[i - 1][j - 1] === 0)) {
 
-                            // subtract ships life which is hit 
-                            // mark as hit on hidden grid
+                            
                             this.gridHidden[i - 1][j - 1] = 1;
                             this.currLife[this.gridActual[i - 1][j - 1] - 1]--;
 

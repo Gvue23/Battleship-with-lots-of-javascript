@@ -1,4 +1,3 @@
-////////////////////////////// ANIMATION //////////////////////////////////////////////////////////////
 class animation {
 
     constructor() {
@@ -26,18 +25,14 @@ class animation {
         var bodyLength = 72;
         var bodyHeight = 43;
 
-        //  noStroke();
         fill(r, g, b);
-        // body
         ellipse(centerX, centerY, bodyLength, bodyHeight);
-        // tail
         fill(r, g, b);
         var tailWidth = bodyLength / 4;
         var tailHeight = bodyHeight / 2;
         triangle(centerX - bodyLength / 2, centerY,
             centerX - bodyLength / 2 - tailWidth, centerY - tailHeight,
             centerX - bodyLength / 2 - tailWidth, centerY + tailHeight);
-        // eye
         fill(33, 33, 33);
         ellipse(centerX + bodyLength / 4, centerY, bodyHeight / 5, bodyHeight / 5);
 
@@ -124,7 +119,6 @@ class animation {
         this.drawSubmarine(this.submarineX1, this.submarineY1);
         this.drawSubmarine(this.submarineX2 , this.submarineY2);
 
-      //  this.drawPebbles(4, -200);
     }
 }
 

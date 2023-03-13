@@ -1,16 +1,9 @@
-
 var singlePlayerState = function () {
-
-    // background(0, 255, 255,100);
     var backButton1 = new button("  back", 350, 450);
-    var DensityLensButtonOn = new button("DensityLensON", 550, 450, 230);
-    var DensityLensButtonOff = new button("DensityLensOFF", 810, 450, 240);	
 	
     backButton1.draw();
 	
-    //densityLens = false;
 
-    // draws 10*10 grid for player 1
     if (!player1.confirmButtonPushed) {
 
         player1.drawGridActual();
@@ -18,44 +11,19 @@ var singlePlayerState = function () {
     }
     else {
         player1.drawGridHidden();
-        
-        DensityLensButtonOn.draw();
-	    DensityLensButtonOff.draw();
-        if(DensityLensButtonOn.insideButton()){
-
-            if(!mouseIsPressed){
-                DensityLensButtonOn.lightUpButton();
-            }
-            if(mouseIsPressed){
-                densityLens = true;
-		mouseIsPressed = false;    
-            }
-        }
-	    if(DensityLensButtonOff.insideButton()){
-
-            if(!mouseIsPressed){
-                DensityLensButtonOff.lightUpButton();
-            }
-            if(mouseIsPressed){
-                densityLens = false;
-		mouseIsPressed = false;       
-            }
-        }
            
     }
 
-    // draws 10*10 grid for BOT
       bot.drawGridHidden();
 
-    // auto button for player 1
     if (player1.shipArranged === false) {
 
         player1AutoButton.draw();
 
         if (player1AutoButton.insideButton()) {
-            //check to see if the mouse is pressed
+
             if (!mouseIsPressed) {
-                //if mouse is not pressed then light up button
+
                 player1AutoButton.lightUpButton();
 
             }
@@ -65,20 +33,19 @@ var singlePlayerState = function () {
                 player1.arrangeShip();
                 player1.autoButtonPushed = true;
 		mouseIsPressed = false;   
-                //shipArranged = true;
+
             }
         }
     }
 
-    // confirm button for player1
+
     if (player1.autoButtonPushed) {
 
         player1ConfirmButton.draw();
 
         if (player1ConfirmButton.insideButton()) {
-            //check to see if the mouse is pressed
+
             if (!mouseIsPressed) {
-                //if mouse is not pressed then light up button
                 player1ConfirmButton.lightUpButton();
             }
             if (mouseIsPressed) {
@@ -87,19 +54,15 @@ var singlePlayerState = function () {
                 player1.shipArranged = true;
                 player1.confirmButtonPushed = true;
 
-                // arrange bots ship
                 bot.initializeGrid();
                 bot.arrangeShip();
                 mapSwap("singlePlayer");
 		mouseIsPressed = false;   
-                //shipArranged = true;
             }
         }
     }
 
 
-    // if both players have deployed ships start the game
-    // main multiplayer pass N play if statement
     if (player1.confirmButtonPushed) {
 
         if(playerSwitching){
@@ -132,8 +95,6 @@ var singlePlayerState = function () {
 
         else  if (playerOneTurn) {
 
-            // argument 3 represents bot
-            //  bot.play();
             if (bot.play() === true) {
                 // make separate class for win 
                 winState = true;
@@ -163,7 +124,6 @@ var singlePlayerState = function () {
 
     }
 
-    // back button  - common for both the players
     if (backButton1.insideButton()) {
         //check to see if the mouse is pressed
         if (!mouseIsPressed) {

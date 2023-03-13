@@ -1,5 +1,3 @@
-
-
 var generateIslands = function(islandsCount){
 
     var stack = {first :[], second:[]};
@@ -190,16 +188,12 @@ var newMapState = function(){
              mouseIsPressed = false;
         }
     }    
-    // back button  - common for both the players
     if (backButton.insideButton()) {
-        //check to see if the mouse is pressed
         if (!mouseIsPressed) {
-            //if mouse is not pressed then light up button
             backButton.lightUpButton();
 
         }
         if (mouseIsPressed) {
-            //if mouse is pressed go to menu
             makeNewMap = false;
             singlePlayer = false;
             multiPlayerOffline = false;
@@ -207,6 +201,4 @@ var newMapState = function(){
             mouseIsPressed = false;
         }
     }
-
-
 };

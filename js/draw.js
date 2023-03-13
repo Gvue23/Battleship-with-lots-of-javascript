@@ -1,7 +1,3 @@
-//   var playClass = function(){
-// inherit attributes from ship class
-//   shipClass.call( this );
-// };
 var player1AutoButton = new button("auto", 50, 400);
 var player1ConfirmButton = new button("confirm", 250, 400);
 var player2ConfirmButton = new button("confirm", 750, 400);
@@ -18,11 +14,6 @@ var statisticsButton = new button("statistics", posX + 100, posY + 290);
 var anim = new animation();
 
 
-
-/**
-* draw
-* description: draw function is executed 60 frames per second, it invokes different gameStates based on values 
-*/
 
 var draw = function () {
 
@@ -59,7 +50,5 @@ var draw = function () {
     else if (winState === true){
         winStateCall();
     }
-
-
 
 };

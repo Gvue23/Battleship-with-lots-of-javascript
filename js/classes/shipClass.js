@@ -5,7 +5,6 @@ var shipClass = function () {
 
     this.win = false;
 
-    // the begin and end coordinate in below array is for sending backend the coordinates of the ship
     this.shipName = [
         //patrolBoat : 
         { color: { r: 0, g: 240, b: 0 }, size: 2 },

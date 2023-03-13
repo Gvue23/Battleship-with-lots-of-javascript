@@ -1,4 +1,3 @@
-// class for buttons - object oriented programming
 var button = function (str, x, y, w = 170, h = 40) {
     // buttons constructor
     this.x = x;
@@ -7,10 +6,9 @@ var button = function (str, x, y, w = 170, h = 40) {
     this.height = h;
     this.width = w;
 };
-// buttons method
+
 button.prototype.draw = function () {
 
-   // fill(219, 9, 219, 200);  -> light pink
     fill(0, 210, 0, 200);
     rect(this.x, this.y, this.width, this.height, 10);
     fill(0, 0, 0);

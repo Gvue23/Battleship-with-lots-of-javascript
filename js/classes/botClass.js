@@ -16,7 +16,6 @@ var botClass = function () {
     this.stack_y = [];
 
 };
-// botclass inherits all player class methods
 botClass.prototype = Object.create(player.prototype);
 
 botClass.prototype.countShipStatus = function(str){

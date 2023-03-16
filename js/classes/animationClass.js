@@ -90,7 +90,7 @@ class animation {
     animationPlay() {
 
 
-        background(40, 40, 40);
+        background(49, 51, 53);
         this.submarineX1 = this.submarineX1 - 1.5;
         this.submarineX2 = this.submarineX2 + 1.5;
         this.fishX1 = this.fishX1 + 2.5;

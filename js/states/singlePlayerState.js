@@ -67,7 +67,6 @@ var singlePlayerState = function () {
 
         if(playerSwitching){
 
-            // delay loop
             playerSwitchingIterator ++;
 
                 if(playerOneTurn){
@@ -96,7 +95,6 @@ var singlePlayerState = function () {
         else  if (playerOneTurn) {
 
             if (bot.play() === true) {
-                // make separate class for win 
                 winState = true;
                 singlePlayer = false;
 
@@ -106,7 +104,6 @@ var singlePlayerState = function () {
         }
         else {
 
-            //  player1.play(1);
             if (player1.play(1) === true) {
 
                 winState = true;
@@ -125,14 +122,11 @@ var singlePlayerState = function () {
     }
 
     if (backButton1.insideButton()) {
-        //check to see if the mouse is pressed
         if (!mouseIsPressed) {
-            //if mouse is not pressed then light up button
             backButton1.lightUpButton();
 
         }
         if (mouseIsPressed) {
-            //if mouse is pressed go to menu
             singlePlayer = false;
             menu = true;
             createNewSinglePlayerObject();

@@ -82,13 +82,11 @@ for (var i = 0; i < 3; i++) {
 }  
 strokeWeight(1);
   if (backButton.insideButton()) {
-      //check to see if the mouse is pressed
       if (!mouseIsPressed) {
 
           backButton.lightUpButton()
       }
       if (mouseIsPressed) {
-          //if mouse is pressed go to menu
           statistics = false;
           menu = true;
       }

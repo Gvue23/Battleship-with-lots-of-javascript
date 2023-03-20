@@ -69,14 +69,12 @@
 
     const ISLAND = -2;
 
-    // creating statistics table
     var statTable = new Array(3);
     for (var i = 0; i < statTable.length; i++) {
 
       statTable[i] = new Array(6);
     }
 
-    // initializing statistics table
 
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < 6; j++) {

@@ -1,5 +1,4 @@
 var menuState = function () {
-    //rectangle to go around the buttons
     fill(96, 174, 225, 220);
     rect(posX + 10, posY + 15, 350, 370, 60);
     fill(255, 255, 255);
@@ -14,7 +13,6 @@ var menuState = function () {
 
     if (mouseX > singlePlayerButton.x && mouseX < singlePlayerButton.x + singlePlayerButton.width && mouseY > singlePlayerButton.y) {
 
-        //if mouse is pressed go to play
         if (singlePlayerButton.insideButton()) {
 
             singlePlayerButton.lightUpButton();

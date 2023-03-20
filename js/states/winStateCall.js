@@ -53,7 +53,6 @@ if (singlePlayerWin === true) {
 
         statTable[statisticsEnum.row.Player1][statisticsEnum.col.shipsDestroyed] += numberOfShipsLost;
         statTable[statisticsEnum.row.botPlayer][statisticsEnum.col.shipsLost] += numberOfShipsLost;
-        // number of ships lost
 
         statTable[statisticsEnum.row.Player1][statisticsEnum.col.shipsLost] += bot.countShipStatus("destroyed");
         statTable[statisticsEnum.row.botPlayer][statisticsEnum.col.shipsDestroyed] += bot.countShipStatus("destroyed");
@@ -70,14 +69,11 @@ else {
 
         statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] ++;
 
-      // average turns to win
       statTable[statisticsEnum.row.Player1][statisticsEnum.col.avgTurnsToWin] += player1.turn;
       statTable[statisticsEnum.row.Player1][statisticsEnum.col.avgTurnsToWin] = roundTo(statTable[statisticsEnum.row.Player1][statisticsEnum.col.avgTurnsToWin]/ statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] );   
      
-      // win percentage
       statTable[statisticsEnum.row.Player1][statisticsEnum.col.winPercentage] = roundTo( ( statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] / (statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] + statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesLost]) )*100.0 );
       statTable[statisticsEnum.row.Player2][statisticsEnum.col.winPercentage] = roundTo( ( statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesWon] / (statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesWon] + statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesLost]) )*100.0 );
-      // number of ships destroyed
       var numberOfShipsDestroyed = 0;
       for(var i = 0; i < 5; i++){
           if(player2.currLife[ i ] === 0){
@@ -92,7 +88,6 @@ else {
       }
       statTable[statisticsEnum.row.Player1][statisticsEnum.col.shipsDestroyed] += numberOfShipsLost;
       statTable[statisticsEnum.row.Player2][statisticsEnum.col.shipsLost] += numberOfShipsLost;
-      // number of ships lost
 
       statTable[statisticsEnum.row.Player1][statisticsEnum.col.shipsLost] += numberOfShipsDestroyed;
       statTable[statisticsEnum.row.Player2][statisticsEnum.col.shipsDestroyed] += numberOfShipsDestroyed;
@@ -115,7 +110,6 @@ if(!statTableUpdated){
     
     statTable[statisticsEnum.row.Player2][statisticsEnum.col.winPercentage] = roundTo(  ( statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesWon] / (statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesWon] + statTable[statisticsEnum.row.Player2][statisticsEnum.col.matchesLost]) )*100.0 );
     statTable[statisticsEnum.row.Player1][statisticsEnum.col.winPercentage] = roundTo(  ( statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] / (statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesWon] + statTable[statisticsEnum.row.Player1][statisticsEnum.col.matchesLost]) )*100.0 );
-    // number of ships destroyed
     var numberOfShipsDestroyed = 0;
     for(var i = 0; i < 5; i++){
         if(player1.currLife[ i ] === 0){

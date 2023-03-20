@@ -150,13 +150,10 @@ var newMapState = function(){
     }
 
     if (startButton.insideButton()) {
-        //check to see if the mouse is pressed
         if (!mouseIsPressed) {
-            //if mouse is not pressed then light up button
             startButton.lightUpButton();
         }
         if (mouseIsPressed) {
-            //if mouse is pressed go to menu
             makeNewMap = false;
             
             if(singlePlayer === true){
@@ -170,14 +167,11 @@ var newMapState = function(){
     } 
 
     if (newMapButton.insideButton()) {
-        //check to see if the mouse is pressed
         if (!mouseIsPressed) {
-            //if mouse is not pressed then light up button
             newMapButton.lightUpButton();
 
         }
         if (mouseIsPressed) {
-            //if mouse is pressed go to menu
             for(var i = 0; i < 10; i++){
                 for(var j=0; j < 10; j++){
             

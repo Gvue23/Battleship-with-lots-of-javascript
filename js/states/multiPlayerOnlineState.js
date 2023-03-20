@@ -52,9 +52,8 @@ var multiPlayerOnlineState = function () {
         connectButton.draw();
 
         if (connectButton.insideButton()) {
-            //check to see if the mouse is pressed
+
             if (!mouseIsPressed) {
-                //if mouse is not pressed then light up button
                 connectButton.lightUpButton();
             }
             if (mouseIsPressed) {

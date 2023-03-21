@@ -1,5 +1,4 @@
 var button = function (str, x, y, w = 180, h = 45) {
-    // buttons constructor
     this.x = x;
     this.y = y;
     this.txt = str;

@@ -1,6 +1,6 @@
 var menuState = function () {
     fill(96, 174, 225, 220);
-    rect(posX + 10, posY + 15, 350, 350, 60);
+    rect(posX + 30, posY + 15, 350, 350, 60);
     fill(255, 255, 255);
     textSize(50);
 

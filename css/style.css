@@ -2,6 +2,7 @@ body{
     background: url(../snapShots/battleship-background.jpg);
     background-size: cover;
 }
+
 .header {
     color: #ffffff;
     padding: 15px;
@@ -23,6 +24,7 @@ body{
 [alt~=logo] {
     height: 300px;
     margin-left: 550px;
+    margin-top: 35px;
 }
 
 [class~=p5Canvas] {

@@ -57,7 +57,6 @@ botClass.prototype.drawProbabilityDensityGrid = function () {
         return 0;
 };
 
-// size = this.curr_big_ship
 botClass.prototype.find = function (x, y, horiz) {
 
        var i, set = 0;
@@ -74,12 +73,10 @@ botClass.prototype.find = function (x, y, horiz) {
 
                     set++;
                 }
-                // else set=0;
             }
 
         }
 
-        // vertical
         else {
 
             for (i = 0; i < this.target_locked_x.length; i++) {
@@ -92,7 +89,6 @@ botClass.prototype.find = function (x, y, horiz) {
 
                     set++;
                 }
-                //	 else set=0;
             }
         }
 
@@ -102,7 +98,6 @@ botClass.prototype.find = function (x, y, horiz) {
         }
         return 0;
 };
-// currship = currbigship
 botClass.prototype.grid_filter = function (i, j, horiz, currShip) {
     
         var k;
@@ -146,7 +141,6 @@ botClass.prototype.grid_filter = function (i, j, horiz, currShip) {
 };
 botClass.prototype.largestAliveShip = function () {
 
-    // below for loops finds the current biggest alive ship of opponent
            var i = 0;
 
         for (i = 4; i >= 0; i--) {
@@ -215,11 +209,9 @@ botClass.prototype.initialize = function () {
 
         for (var j = 0; j < 10; j++) {
 
-            // marks missed shot as 0 & ignore  in density map
             if (this.gridHidden[i][j] === -1 || this.gridHidden[i][j] === ISLAND) {
                 this.grid[i][j] = 0;
             }
-            // mark hit shot as 1 & ignore in density map
             else if (this.gridHidden[i][j] === 1) {
                 this.grid[i][j] = 1;
             }
@@ -240,30 +232,25 @@ botClass.prototype.calcProbabilityDensity = function () {
 
         this.initialize();
 
-        // below for loop determines the biggest alive ship
         if (this.chainFire) {
 
-            this.curr_big_ship = this.smallestAliveShip() + this.smallSize; //   when chainFire is enabled we will reduce filter to smallest ship
+            this.curr_big_ship = this.smallestAliveShip() + this.smallSize; 
         }
 
 
-        // strategy always searches for biggest unsinked ship
         else {
 
             this.curr_big_ship = this.largestAliveShip();
         }
 
-        // horizontal probability update
         for (i = 0; i < 10; i++) {
 
             for (j = 0; j <= 10 - this.curr_big_ship; j++) {
 
-                // enables probability filter when chain fire is active
                 if (this.chainFire && !(this.grid_filter(i, j, 1, this.curr_big_ship) && this.find(i, j, 1))) {
                     continue;
                 }
 
-                // enables probability filter when chain fire is dormant
                 else if (!this.grid_filter(i, j, 1, this.curr_big_ship)) {
                     continue;
                 }
@@ -284,7 +271,6 @@ botClass.prototype.calcProbabilityDensity = function () {
             }
         }
 
-        // vertical probability update
         for (i = 0; i <= 10 - this.curr_big_ship; i++) {
 
             for (j = 0; j < 10; j++) {
@@ -348,7 +334,6 @@ botClass.prototype.play = function () {
             var tempX = this.missed_target_x.pop();
             var tempY = this.missed_target_y.pop();
 
-            // give loc high probability
             this.grid[ tempX ][ tempY ] = this.grid[ tempX ][ tempY ] + 20;
             this.target_locked_x.push(tempX);
             this.target_locked_y.push(tempY);
@@ -378,8 +363,6 @@ botClass.prototype.play = function () {
             }
         }
 
-        // selects target randomly from highest density block 
-
         var randomNumber = floor(random(0, this.stack_x.length));
 
             botHitX = this.stack_x[randomNumber];
@@ -391,7 +374,6 @@ botClass.prototype.play = function () {
         }
 
 
-        // if shot missed execute this
         if ((this.gridActual[ botHitX ][ botHitY ] === 0) && (this.gridHidden[ botHitX ][ botHitY ] === 0)) {
 
             this.gridHidden[ botHitX ][ botHitY ] = -1;
@@ -401,17 +383,13 @@ botClass.prototype.play = function () {
         }
 
 
-        // if shot hit execute this
         else if ((this.gridActual[botHitX][botHitY] > 0) && (this.gridHidden[botHitX][botHitY] === 0)) {
 
-            // ruduce ships life which is hit 
-            // mark as hit on hidden grid
             this.gridHidden[botHitX][botHitY] = 1;
             this.currLife[this.gridActual[botHitX][botHitY] - 1]--;
 
             if (this.chainFire) {
 
-                // if we hit another ship than add its coordinates to stack
                 if ((this.hitShipType !== this.gridActual[botHitX][botHitY])) {
 
                     this.missed_target_x.push(botHitX);
@@ -431,8 +409,6 @@ botClass.prototype.play = function () {
                     }
                 }
 
-
-                // if ship sinked execute this else
                 else {
 
                     while (this.target_locked_x.length > 0) {
@@ -447,7 +423,6 @@ botClass.prototype.play = function () {
                 }
             }
 
-            // if chain fire is off
             else {
 
 

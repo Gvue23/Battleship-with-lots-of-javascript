@@ -9,10 +9,6 @@ var slotHeight = 40 * 1.5,
 
 
 strokeWeight(0);
-fill(170, 120, 200, 300);
-rect(statTableX / 4 + 180, statTableY / 4 - 7, slotWidth, slotHeight);
-fill(0, 0, 0);
-text("ONLINE", statTableX / 4 + 195, statTableY / 4 + 10, slotWidth, slotHeight);
 
 fill(255, 105, 200, 200);
 
@@ -21,7 +17,8 @@ rect(statTableX / 4 + 30, statTableY / 4 - 7, slotWidth, slotHeight);
 strokeWeight(1);
 
 fill(0, 0, 0);
-text("OFFLINE", statTableX / 4 + 40, statTableY / 4 + 10, slotWidth, slotHeight);
+textSize(34)
+text("Statistics", statTableX / 4.5 + 40, statTableY / 4 + 10, slotWidth, slotHeight);
 
 fill(255, 105, 200, 200);
 
@@ -66,7 +63,6 @@ for (var i = 0; i < 3; i++) {
       fill(0, 180, 0);
 
     }
-
     else{
 
       fill(255, 0, 0);

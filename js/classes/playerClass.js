@@ -78,7 +78,6 @@ player.prototype.drawGridActual = function () {
             fill(64, 54, 255);
             rect(indent + 50 + 30 * i, 50 + 30 * j, 30, 30);
 
-            // draws the ships on the map
             if (this.gridActual[i - 1][j - 1] > 0) {
 
                 fill(this.shipName[this.gridActual[i - 1][j - 1] - 1].color.r, this.shipName[this.gridActual[i - 1][j - 1] - 1].color.g, this.shipName[this.gridActual[i - 1][j - 1] - 1].color.b);
@@ -142,22 +141,17 @@ player.prototype.drawGridHidden = function () {
             if(densityLens === false || this.playeris !== 2){
 
             if(this.gridHidden[i - 1][j - 1] === ISLAND){
-                //sandy beach colour
                 fill(255, 212, 128);
             }
     
             rect(indent + 50 + 30 * i, 50 + 30 * j, 30, 30);
                }
-            // target hit inside the block
             if (this.gridHidden[i - 1][j - 1] > 0) {
-                // red color
                 fill(255, 56, 63);
                 ellipse(indent + 65 + 30 * i, 65 + 30 * j, 20, 20);
             }
 
-            // missed inside block
             else if (this.gridHidden[i - 1][j - 1] === -1) {
-                // yellow color
                 fill(255, 255, 0);
                 ellipse(indent + 65 + 30 * i, 65 + 30 * j, 20, 20);
             }
@@ -261,7 +255,6 @@ player.prototype.arrangeShip = function () {
         }
 
     }
-    //  return 0;
 };
 player.prototype.initializeGrid = function () {
     for(var i = 0; i < 10; i++){

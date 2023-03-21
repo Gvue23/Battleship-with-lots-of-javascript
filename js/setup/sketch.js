@@ -26,7 +26,6 @@
     var credits = false;
     var instructions = false;
     var multiPlayerOffline = false;
-    var multiPlayerOnline = false;
     var statistics = false;
     var winState = false;
     var makeNewMap = false;

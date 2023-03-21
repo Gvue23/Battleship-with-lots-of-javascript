@@ -1,11 +1,10 @@
 var menuState = function () {
     fill(96, 174, 225, 220);
-    rect(posX + 10, posY + 15, 350, 370, 60);
+    rect(posX + 10, posY + 15, 350, 350, 60);
     fill(255, 255, 255);
-    textSize(65);
+    textSize(50);
 
     multiplayerButton.draw();
-    onlineButton.draw();
     instructionsButton.draw();
     creditsButton.draw();
     statisticsButton.draw();
@@ -37,17 +36,6 @@ var menuState = function () {
                 makeNewMap = true;  
                 initializeRandomMap();
             }    
-        }
-        else if (onlineButton.insideButton()) {
-
-            onlineButton.lightUpButton();
-
-            if (mouseIsPressed) {
-
-                menu = false;
-                multiPlayerOnline = true;
-
-            }
         }
         else if (instructionsButton.insideButton()) {
 

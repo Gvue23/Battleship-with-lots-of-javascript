@@ -19,9 +19,7 @@
       mouseIsPressed = true;
     };
 
-    /**
-    global variables
-    */
+
     var menu = true;
     var credits = false;
     var instructions = false;
